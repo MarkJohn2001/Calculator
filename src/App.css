@@ -1,0 +1,187 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  position: relative;
+  padding: 16px;
+  overflow: hidden;
+  background: url('assets/Bg5.jpg') no-repeat center center;
+  background-size: cover;
+  z-index: -2;
+  overflow: auto;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('assets/Bg5.jpg') no-repeat center center;
+  background-size: cover;
+  filter: blur(5px);
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: -1;
+}
+
+main {
+  width: 100%;
+  max-width: 400px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 16px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(255, 215, 0, 0.3);
+  background: linear-gradient(135deg, #000000, #6b4d02); /* Gradient from gold to goldenrod */
+  border: 2px solid #FFD700;
+  box-sizing: border-box;
+}
+
+.calculator {
+  padding: 16px;
+  border-radius: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.calculator h2, .calculator h3 {
+  font-size: 40px;
+  color: #FFD700;
+  margin: 12px 0;
+  text-shadow: 0 2px 4px rgba(255, 215, 0, 0.2);
+  text-align: center; /* Center the text */
+
+}
+
+.calculator input {
+  width: 100%;
+  padding: 16px;
+  margin: 8px 0;
+  font-size: 18px;
+  border: 2px solid #FFD700;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #FFD700;
+  text-align: center;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.calculator input:focus {
+  outline: 2px solid #FFD700;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 16px 0;
+}
+
+button {
+  background: #FFD700;
+  color: #000000;
+  border: none;
+  padding: 16px;
+  font-size: 18px;
+  border-radius: 12px;
+  transition: background 0.2s, transform 0.1s;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+button:active {
+  transform: scale(0.95);
+  background: #DAA520;
+}
+
+.buttons button {
+  font-size: 20px;
+  font-weight: bold;
+  background: linear-gradient(to right, #FFD700, #DAA520);
+}
+
+.buttons button:active {
+  background: #DAA520;
+}
+
+.calculator > button {
+  width: 100%;
+  margin-top: 12px;
+  background: linear-gradient(to right, #FFD700, #DAA520);
+}
+
+.calculator > button:active {
+  background: #DAA520;
+}
+
+.result {
+  font-size: 24px;
+  color: #000000;
+  margin: 16px 0;
+  padding: 16px;
+  background: linear-gradient(to right, #FFD700, #DAA520);
+  border-radius: 12px;
+  word-break: break-word;
+  text-align: center; /* Center the text */
+
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 480px) {
+  main {
+    padding: 16px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .calculator {
+    padding: 12px;
+  }
+
+  button {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .calculator h2, .calculator h3 {
+    font-size: 20px;
+  }
+
+  .result {
+    font-size: 18px;
+    text-align: center; /* Center the text */
+
+  }
+
+  .buttons {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* iPhone-specific notch handling */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+  }
+}
