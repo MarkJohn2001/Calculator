@@ -23,7 +23,7 @@ function App() {
   return (
     <main>
     <div className="calculator">
-      <h2>Number: {count}</h2>
+    <h2>Count: <span class="count1">{count}</span></h2>
       <button onClick={increment}>Increment</button>
       <button onClick={decrement}>Decrement</button>
       <button onClick={reset}>Reset</button>
